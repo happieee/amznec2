@@ -6,3 +6,8 @@
   indexes are marked
 
 2.WebScraper which is used to find the Headlines from a website named TIMES OF INDIA.
+
+
+3.Facial Emotion Recognition Web Application using Flask.
+
+  This application uses an API called Paralleldots which does the Emotion analysis of image given as input to the Flask application.
