@@ -11,3 +11,7 @@
 3.Facial Emotion Recognition Web Application using Flask.
 
   This application uses an API called Paralleldots which does the Emotion analysis of image given as input to the Flask application.
+  
+ 4.Analysis of top 100 tweets from twitter
+
+  It shows the positive,negative and neutral emotions using Textblob.
