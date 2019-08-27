@@ -1,0 +1,32 @@
+import tweepy
+import matplotlib.pyplot as plt
+from textblob import TextBlob
+consumer_key='5l5HIQHnBEdpGVbVEWNuhI1Y4'
+consumer_key_secret='CxnZ9GJU0UzXnO8THtDytMXmaZzBzq0UOKSa5Rj3pVU7J9HLPk'
+access_token='860121151351267329-uM0fuAYXnr89I7Gdz3I88v02Ds4HMcJ'
+access_token_secret='37UmraE8tZKTmErdtYRzQ6H8K1FBd1tPOfu0La4uHn39U'
+auth=tweepy.OAuthHandler(consumer_key,consumer_key_secret)
+auth.set_access_token(access_token,access_token_secret)
+api=tweepy.API(auth)
+public_tweets=api.search(q='article370',lang='en',count=5000)
+positives=0
+negatives=0
+neutrals=0
+t=0
+for i in public_tweets:
+	print((TextBlob(i.text)).sentiment)
+	if (TextBlob(i.text)).sentiment.polarity==0:
+		neutrals=neutrals+1
+	if (TextBlob(i.text)).sentiment.polarity<0:
+		negatives=negatives+1
+	if (TextBlob(i.text)).sentiment.polarity>0:
+		positives=positives+1
+	t=t+1
+print(t,positives,negatives,neutrals)
+x=[1,2,3]
+y=[positives,negatives,neutrals]
+tick_label=['positives','negatives','neutrals']
+plt.bar(x,y,tick_label=tick_label,width=0.8,color=['blue','red','green'])
+plt.xlabel('number of tweets')
+plt.xlabel('emotion')
+plt.show()
